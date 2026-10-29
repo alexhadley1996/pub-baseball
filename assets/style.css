@@ -190,3 +190,21 @@ th:focus-visible{outline:2px solid #0b4a8b}
 td .tl{vertical-align:middle}
 .bxs{max-width:760px}
 .full td:nth-child(2),.full th:nth-child(2){text-align:left}
+
+/* tabs + advanced stats */
+.ptabs{display:flex;gap:4px;flex-wrap:wrap;margin:18px 0 4px;border-bottom:3px solid var(--accent)}
+.ptabs button{font:600 .86rem -apple-system,"Segoe UI",sans-serif;background:var(--card);border:1px solid var(--rule);border-bottom:0;border-radius:5px 5px 0 0;padding:7px 14px;cursor:pointer;color:var(--ink)}
+.ptabs button.on{background:var(--band,var(--accent));color:var(--bandfg,#fff);border-color:var(--band,var(--accent))}
+.js .tp{display:none}.js .tp.on{display:block}
+.tp>h2:first-child{margin-top:.8em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--accent);border-radius:4px;padding:6px 12px;min-width:84px}
+.chip b{display:block;font:700 1.35rem/1.1 Georgia,serif}.chip span{font-size:.68rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700}
+.chip small{display:block;font-size:.7rem}
+.rk{font-size:.72rem;color:var(--muted)}.rk.top{color:var(--green);font-weight:700}.rk.bot{color:var(--red);font-weight:700}
+.tw:has(.glog){max-width:none}
+table.split td:first-child{font-weight:600}
+tr.grp td{background:#efe9dc;font-size:.7rem;text-transform:uppercase;letter-spacing:.6px;font-weight:800;color:var(--muted);text-align:left}
+.ranks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.teamed .chip{border-left-color:var(--band)}
+@media (max-width:640px){.ptabs button{padding:6px 9px;font-size:.8rem}.chip{min-width:70px;padding:5px 8px}.chip b{font-size:1.1rem}}
