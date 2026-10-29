@@ -29,6 +29,7 @@ function sortTable(t,ci,th){
     if(isNum)return (x-y)*dir||a-b;
     return x.localeCompare(y,undefined,{numeric:true,sensitivity:'base'})*dir||a-b});
   var f=document.createDocumentFragment();idx.forEach(function(i){f.appendChild(rows[i])});tb.appendChild(f);
+  rows.forEach(function(r){[].forEach.call(r.cells,function(c,k){c.classList.toggle('sc',k===ci)})});
   t.classList.add('sorted')}
 function init(){
   [].forEach.call(document.querySelectorAll('table.st'),function(t){

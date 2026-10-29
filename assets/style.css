@@ -208,3 +208,43 @@ tr.grp td{background:#efe9dc;font-size:.7rem;text-transform:uppercase;letter-spa
 .ranks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
 .teamed .chip{border-left-color:var(--band)}
 @media (max-width:640px){.ptabs button{padding:6px 9px;font-size:.8rem}.chip{min-width:70px;padding:5px 8px}.chip b{font-size:1.1rem}}
+
+/* ---- full team theme (team pages) ---- */
+body.themed{background-color:var(--bg);background-image:repeating-linear-gradient(135deg,color-mix(in srgb,var(--acc) 10%,transparent) 0 12px,transparent 12px 40px),linear-gradient(180deg,var(--bg) 0,var(--bg2) 100%);background-attachment:fixed}
+.themed .mast,.themed-lite .mast{background:var(--dark);border-bottom-color:var(--acc)}
+.themed .nav,.themed-lite .nav{background:color-mix(in srgb,var(--dark) 78%,#000)}
+.themed .nav a.on,.themed .nav a:hover,.themed-lite .nav a.on,.themed-lite .nav a:hover{background:var(--acc);color:var(--accfg)}
+.themed main.wrap{padding-bottom:8px}
+.themed .tabsw{background:var(--panel);border-radius:8px;box-shadow:0 8px 28px rgba(0,0,0,.28),0 0 0 1px rgba(0,0,0,.08);padding:14px 22px 26px;margin-top:16px}
+.themed .tabsw>.ptabs{margin-top:0}
+.themed .foot{border-top:0;color:var(--bgfg)}
+.themed .foot a{color:inherit;text-decoration:underline}
+.themed main a{color:var(--accent)}
+.themed .band a{color:inherit}
+.themed .tw{border-color:color-mix(in srgb,var(--band) 30%,#fff);background:#fff}
+.themed .st thead th{background:var(--band);color:var(--bandfg);border-bottom:3px solid var(--accent2)}
+.themed .st thead th.sh:hover{background:color-mix(in srgb,var(--band) 80%,#000)}
+.themed .st thead th[aria-sort],.themed-lite .st thead th[aria-sort]{background:var(--accent2);color:var(--sfg)}
+.themed tbody tr:nth-child(even) td{background:var(--rowtint)}
+.themed tbody tr:hover td{background:var(--sectint)}
+.themed .st tfoot td{background:var(--tint);border-top:2px solid var(--band)}
+td.sc{background:rgba(255,214,0,.10)}
+.themed tbody tr td.sc,.themed tbody tr:nth-child(even) td.sc,.themed-lite tbody tr td.sc{background:color-mix(in srgb,var(--accent2) 18%,#fff)}
+.themed main h2:not(.lgh){color:var(--accent);border-bottom:3px solid var(--band);box-shadow:0 3px 0 var(--accent2);padding-bottom:4px}
+.themed main h3{color:var(--accent)}
+.themed .ptabs{border-bottom:4px solid var(--band)}
+.themed .ptabs button{background:#fff;border-color:color-mix(in srgb,var(--band) 30%,#fff);color:var(--accent)}
+.themed .ptabs button:hover{background:var(--tint)}
+.themed .ptabs button.on{background:var(--band);color:var(--bandfg);border-color:var(--band);box-shadow:inset 0 3px 0 var(--accent2)}
+.themed .chip{border:1px solid color-mix(in srgb,var(--band) 25%,#fff);border-left:6px solid var(--band);border-top:3px solid var(--accent2);background:#fff}
+.themed .chip b{color:var(--accent)}
+.themed .hero{margin-top:22px;box-shadow:0 0 0 2px color-mix(in srgb,var(--acc) 70%,transparent),0 10px 26px rgba(0,0,0,.35)}
+.themed .chips{margin-top:16px}
+.themed .chip{box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.themed .race,.themed figure{background:#fff;border-radius:4px}
+.themed details summary{color:var(--accent)}
+/* lighter touch on player pages */
+body.themed-lite{background:linear-gradient(180deg,var(--tint) 0,var(--paper) 640px) no-repeat,var(--paper)}
+.themed-lite .ptabs button.on{box-shadow:inset 0 3px 0 var(--accent2)}
+.themed-lite .chip{border-top:3px solid var(--accent2)}
+@media (max-width:640px){.themed .tabsw{margin:12px -10px 0;padding:10px 10px 16px;border-radius:6px}}
