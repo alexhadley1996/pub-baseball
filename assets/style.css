@@ -379,3 +379,4 @@ i.ha{display:inline-block;width:1.6em;font-style:normal;color:var(--muted)}
 h4.hdiv{margin:.8em 0 .3em;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px}.tag{font-size:.75rem;padding:2px 8px;border-radius:3px;background:#ece7dc;margin-left:8px}
 .hnote{border-left:3px solid var(--rule);padding-left:8px}
 th.tml{text-align:left}
+.svcbox{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--accent);border-radius:4px;padding:4px 16px 8px;margin:8px 0 18px}.svcbox h2{margin-top:.5em}.svcbox .facts{font-size:.95rem}
