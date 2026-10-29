@@ -380,3 +380,46 @@ h4.hdiv{margin:.8em 0 .3em;font-size:.9rem;text-transform:uppercase;letter-spaci
 .hnote{border-left:3px solid var(--rule);padding-left:8px}
 th.tml{text-align:left}
 .svcbox{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--accent);border-radius:4px;padding:4px 16px 8px;margin:8px 0 18px}.svcbox h2{margin-top:.5em}.svcbox .facts{font-size:.95rem}
+/* ---- home dashboard */
+.dhero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;background:var(--navy);color:#fff;border-radius:6px;padding:20px 22px;margin:14px 0 10px}
+.dhero h1{color:#fff;margin:.1em 0;font-size:2.3rem}.dhero .kick{color:#c9d3e6}.dhd{margin:.2em 0 .8em;color:#dfe6f2}
+.dbest{display:grid;gap:6px}.dbt{display:flex;align-items:center;gap:8px;background:#fff;color:var(--ink);border-left:6px solid var(--p);border-radius:4px;padding:6px 10px}
+.dbt:hover{text-decoration:none;box-shadow:0 0 0 2px var(--s)}.dbt .lg{width:30px;height:30px}.dbt small{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:700}
+.dbt b{margin-right:6px}
+.dlead{display:block;background:#fff;color:var(--ink);border-radius:4px;padding:14px 16px;border-top:5px solid var(--red)}.dlead:hover{text-decoration:none;box-shadow:0 0 0 2px #fff8}
+.dlead h2{font:700 1.35rem/1.2 Georgia,serif;margin:.25em 0}.dlead p{margin:0;color:#333;font-size:.92rem}
+.dwire{grid-column:1/-1;margin:0;font-size:.9rem;color:#dfe6f2}.dwire a{color:#fff;text-decoration:underline}.dwire time{color:#aab6cc;margin:0 6px}.dwire .tag{background:#fff2;color:#fff}
+.dquick{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}.dquick a{background:var(--card);border:1px solid var(--rule);border-radius:20px;padding:5px 13px;font-weight:600;font-size:.88rem;color:var(--ink)}
+.dquick a:hover{background:var(--navy);color:#fff;text-decoration:none}
+.dscores{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.dsl{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px}
+.dsc{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:5px 8px;font-size:.86rem}
+.dss{display:flex;align-items:center;gap:2px;border-left:4px solid var(--p);padding-left:5px;margin:1px 0}.dss a{color:var(--ink);font-weight:600;flex:1}.dss b{font-weight:400}
+.dss.w a,.dss.w b{font-weight:800}.dss .lg{width:20px;height:20px;margin-right:4px}.dsf{display:block;font-size:.72rem;color:var(--muted);margin-top:2px}
+.dbig{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}.dbig h4{margin:.3em 0}
+.dhc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.hc{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:8px 12px}.hc h4{margin:.2em 0}.hc ul{list-style:none;padding:0;margin:0 0 6px}
+.hc li{display:flex;align-items:center;gap:8px;padding:3px 0;border-bottom:1px solid #eee}.hc li .tl{flex:1;overflow:hidden;text-overflow:ellipsis}.hcn{font-size:.85rem}.hcs{min-width:2.6em;text-align:right;font-weight:700}
+.dlist{list-style:none;padding:0;margin:0}.dlist li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:.9rem}.dlist time{color:var(--muted);font-size:.8rem;margin-right:6px}
+.dlist .ist{float:right;font-size:.75rem}.dtx .tt{margin-right:4px}
+@media (max-width:760px){.dhero{grid-template-columns:1fr;padding:14px}.dhero h1{font-size:1.7rem}.dlead h2{font-size:1.1rem}.dsl{grid-template-columns:repeat(2,1fr)}.dlist .ist{float:none;display:inline-block;margin-left:4px}}
+/* ---- transactions feed */
+.tt-signing{background:#d9f0ee;color:#0d5a52}.tt-extension{background:#e6e0f7;color:#3d2a85}.tt-release{background:#eee;color:#444}
+.tt-retirement{background:#f3ead2;color:#6a4b00}.tt-front-office{background:#e2e8ef;color:#2c3e55}
+.txsum{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.txc{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:4px 8px;cursor:pointer;font:inherit}
+.txc b{font-size:1.05rem}.txc.on{box-shadow:0 0 0 2px var(--navy)}.txl2 span{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:3px 9px;font-size:.88rem}
+.txfeed{margin-top:10px}.txday h3{margin:16px 0 6px;font-size:1rem;border-bottom:2px solid var(--ink);padding-bottom:3px}.txday h3 small{color:var(--muted);font-weight:400}
+.txday ul{list-style:none;padding:0;margin:0}
+.txi{display:grid;grid-template-columns:96px minmax(150px,210px) minmax(120px,180px) 1fr 52px;gap:4px 10px;align-items:center;padding:6px 8px;background:var(--card);border-left:5px solid var(--p);margin:3px 0;border-radius:2px;font-size:.9rem}
+.txi .tt{justify-self:start}.txi .txd{color:#333}.txi .txl{font-size:.72rem;color:var(--muted);text-align:right}.txi .txp a{font-weight:700}
+.txi[hidden],.txday[hidden]{display:none}
+@media (max-width:760px){.txi{grid-template-columns:auto 1fr;font-size:.86rem}.txi .txd{grid-column:1/-1}.txi .txl{display:none}.txi .txp{grid-column:2}}
+/* ---- depth chart */
+.tql{display:flex;flex-wrap:wrap;gap:6px;margin:.5em 0 0}.tql a{background:#fff;color:var(--accent,#0e1a2b);border-radius:14px;padding:3px 11px;font-weight:700;font-size:.85rem}
+.dchart{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:18px;align-items:start}
+.diamond{width:100%;height:auto}.diamond .dfield{fill:#4f8a3c}.diamond .dinf{fill:#c99a64}.diamond .dbase{fill:#fff}.diamond .dmound{fill:#b98852}
+.diamond .dpos rect{fill:var(--band,#0e1a2b);stroke:var(--acc,#fff);stroke-width:1.5;opacity:.95}
+.diamond text{text-anchor:middle;fill:var(--bandfg,#fff);font-family:-apple-system,"Segoe UI",sans-serif}.diamond .dl{font-size:9px;font-weight:700;letter-spacing:.4px;opacity:.85}
+.diamond .dn{font-size:12.5px;font-weight:800}.diamond a .dn{text-decoration:underline}.diamond .ds{font-size:8.5px;opacity:.85}
+@media (max-width:760px){.dchart{grid-template-columns:1fr}}
+.dl23 td:nth-child(2),.dl23 th:nth-child(2),.dl23 td:nth-child(3),.dl23 th:nth-child(3),.dl123 td:nth-child(-n+3),.dl123 th:nth-child(-n+3),.dl12 td:nth-child(-n+2),.dl12 th:nth-child(-n+2){text-align:left}
