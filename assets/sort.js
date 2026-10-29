@@ -14,7 +14,7 @@ function num(s){
   if((m=s.match(/^([A-Z][a-z]{2}) (\d{1,2})$/))&&MON[m[1]])return MON[m[1]]*100+(+m[2]);
   return NaN}
 function sortTable(t,ci,th){
-  var tb=t.tBodies[0];if(!tb)return;var rows=[].slice.call(tb.rows);
+  var tb=t.tBodies[0];if(!tb)return;t.classList.add('sorting');var rows=[].slice.call(tb.rows);
   var vals=rows.map(function(r){return raw(r.cells[ci])});
   var nums=vals.map(num),filled=nums.filter(function(v){return v!==null}),isNum=filled.length&&filled.filter(function(v){return !isNaN(v)}).length>=filled.length*0.6;
   var prev=th.getAttribute('aria-sort'),dir;
@@ -29,8 +29,9 @@ function sortTable(t,ci,th){
     if(isNum)return (x-y)*dir||a-b;
     return x.localeCompare(y,undefined,{numeric:true,sensitivity:'base'})*dir||a-b});
   var f=document.createDocumentFragment();idx.forEach(function(i){f.appendChild(rows[i])});tb.appendChild(f);
-  rows.forEach(function(r){[].forEach.call(r.cells,function(c,k){c.classList.toggle('sc',k===ci)})});
-  t.classList.add('sorted')}
+  /* highlight only the old and new sort columns (touching every cell made big tables feel frozen on phones) */
+  var old=t._sc;rows.forEach(function(r){if(old!=null&&r.cells[old])r.cells[old].classList.remove('sc');if(r.cells[ci])r.cells[ci].classList.add('sc')});t._sc=ci;
+  t.classList.add('sorted');t.classList.remove('sorting')}
 function init(){
   [].forEach.call(document.querySelectorAll('table.st'),function(t){
     if(!t.tHead)return;
