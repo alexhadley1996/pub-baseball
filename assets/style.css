@@ -373,3 +373,9 @@ i.ha{display:inline-block;width:1.6em;font-style:normal;color:var(--muted)}
 .lb li::after{content:"";display:block;clear:both}.lb span.lg.ph{display:inline-block;vertical-align:middle}.lb li b{margin-left:6px}i.act{font-style:normal;color:var(--green)}
 .lb li .ln{max-width:calc(100% - 5.2em)}
 .paypanel>h2:first-child{margin-top:0}
+.ygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px 18px;margin-bottom:14px}.ydec{font-size:.9rem;line-height:1.7}.ydec b{display:inline-block;width:3.4em}
+.ydec a{display:inline-block;margin-right:7px;font-variant-numeric:tabular-nums}.hublinks{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.hublinks .btn{border:1px solid var(--rule);background:var(--card);padding:5px 12px;border-radius:4px}.ypick select{font:inherit;padding:2px 4px}
+h4.hdiv{margin:.8em 0 .3em;font-size:.9rem;text-transform:uppercase;letter-spacing:.5px}.tag{font-size:.75rem;padding:2px 8px;border-radius:3px;background:#ece7dc;margin-left:8px}
+.hnote{border-left:3px solid var(--rule);padding-left:8px}
+th.tml{text-align:left}
