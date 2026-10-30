@@ -296,7 +296,8 @@ body.themed.hasbg .hero.band{background:color-mix(in srgb,var(--band) 86%,transp
 body.themed.hasbg .chips .chip{background:rgba(255,255,255,.95)}
 body.themed.hasbg .foot{background:color-mix(in srgb,var(--dark) 85%,transparent);color:var(--bandfg);padding:10px 0}
 body.themed-lite.hasbg{background:linear-gradient(180deg,color-mix(in srgb,var(--tint) 72%,transparent) 0,var(--paper) 520px),var(--bgimg) center top/100% auto no-repeat,var(--paper)}
-body.themed-lite.hasbg .phero{background:rgba(255,255,255,.94)}
+body.themed-lite.hasbg .phero:not(.band){background:rgba(255,255,255,.94)}
+body.hasbg .phero.band{background:color-mix(in srgb,var(--band) 90%,transparent);backdrop-filter:blur(3px)}
 /* ---- finances / market / ballpark */
 svg.mchart{width:100%;height:auto;display:block;margin:6px 0}
 svg.mchart .ml{font-size:12px;fill:#444}svg.mchart .mv2{font-size:12px;font-weight:700;fill:#222}svg.mchart .gl{stroke:#ddd}
@@ -462,3 +463,5 @@ img.pfbig{width:90px;height:135px;border-radius:10px;background:#e4e1da;flex:non
 .pfw{position:relative;display:inline-flex;flex:none;margin-right:6px}.pfw img.pf{margin:0}
 .pfw img.lg{position:absolute;right:-5px;bottom:-3px;width:13px!important;height:13px!important;margin:0!important;background:#fff;border-radius:50%;padding:1px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
 .pfw .tile{position:absolute;right:-5px;bottom:-3px;transform:scale(.45);transform-origin:bottom right}
+.phero.band img.pfbig+img.lgx{padding:6px;box-sizing:border-box}
+@media (max-width:640px){.phero.band img.pfbig+img.lgx,.phero img.pfbig+img.lgx{width:48px;height:48px;padding:4px;box-sizing:border-box}}
