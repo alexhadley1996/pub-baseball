@@ -504,3 +504,18 @@ h4.sub{margin:1em 0 .2em}
 .cmptab{width:auto;min-width:50%}.cmptab th{text-align:right}.cmptab td{min-width:90px}
 .st.pl3 td:nth-child(2),.st.pl3 td:nth-child(3),.st.pl3 th:nth-child(2),.st.pl3 th:nth-child(3){text-align:left}
 .st.lastl td:last-child,.st.lastl th:last-child{text-align:left;white-space:normal;min-width:220px}
+/* ---- 40-game check-ins ---- */
+.cihero{display:flex;gap:16px;align-items:center;background:var(--p,#0e1a2b);color:#fff;border-radius:6px;padding:14px 18px;margin:12px 0 14px;border-bottom:5px solid var(--s,#b3122e)}
+.cihero .lgx{width:84px;height:84px;object-fit:contain;background:#fff;border-radius:50%;padding:6px;flex:none}
+.cihero h1{color:#fff;margin:.1em 0}.cihero .kick,.cihero .dek{color:#fff;opacity:.88}.cihero .dek{margin:.2em 0 0}
+.story.ci h2{font-size:1.15rem;margin:1.2em 0 .3em;border-bottom:2px solid var(--s,#b3122e);padding-bottom:2px}
+.cinums{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;list-style:none;padding:0}
+.cinums li{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--s,#b3122e);border-radius:3px;padding:6px 9px;font-size:.86rem}.cinums b{display:block;font-size:1.15rem}
+.cinote{margin-top:1.4em}
+.cigrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin:8px 0 18px}
+.cicard{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--rule);border-left:6px solid var(--p,#0e1a2b);border-radius:4px;padding:9px 11px;color:inherit}
+.cicard:hover{text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.12)}.cicard .lg{width:40px;height:40px;flex:none}
+.cit small{display:block;color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.3px}.cit b{display:block;color:#0b4a8b;line-height:1.25;margin:2px 0}.cit span{font-size:.84rem;color:#333}
+.cimores{display:flex;flex-wrap:wrap;gap:6px}.cimore{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--p);border-radius:3px;padding:3px 9px 3px 4px;font-size:.84rem}
+.cimore .lg{width:22px;height:22px}
+@media (max-width:640px){.cihero{flex-direction:column;align-items:flex-start;padding:12px}.cihero .lgx{width:60px;height:60px}.cigrid{grid-template-columns:1fr}}
