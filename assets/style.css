@@ -453,3 +453,12 @@ table.frules td.fr:last-child{white-space:normal}table.frules.sc{width:auto;min-
 .fcall .tl{white-space:normal;min-width:0}.fcall .tl span{overflow-wrap:anywhere}.fcall li{overflow-wrap:anywhere}
 @media(max-width:760px){.fcalls{grid-template-columns:1fr 1fr}}@media(max-width:420px){.fcalls{grid-template-columns:1fr}}
 .tiers.tstack>.tier,.tiers.tstack .divs>*{min-width:0}.tiers.tstack .divblk .tw,.tiers.tstack .divblk{max-width:100%;overflow-x:auto}
+/* player faces (OOTP person pictures) */
+img.pf{width:24px;height:24px;border-radius:50%;object-fit:cover;background:#e4e1da;vertical-align:middle;margin:0 6px 0 0;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.12);display:inline-block}
+.lb .ln img.pf{width:22px;height:22px}.lb .ln img.lg{margin-left:4px}
+img.pfbig{width:90px;height:135px;border-radius:10px;background:#e4e1da;flex:none;box-shadow:0 1px 6px rgba(0,0,0,.25);object-fit:cover}
+.phero img.pfbig+img.lgx{width:56px;height:56px;align-self:flex-start}
+@media(max-width:760px){img.pfbig{width:72px;height:108px}.phero img.pfbig+img.lgx{width:40px;height:40px}}
+.pfw{position:relative;display:inline-flex;flex:none;margin-right:6px}.pfw img.pf{margin:0}
+.pfw img.lg{position:absolute;right:-5px;bottom:-3px;width:13px!important;height:13px!important;margin:0!important;background:#fff;border-radius:50%;padding:1px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.pfw .tile{position:absolute;right:-5px;bottom:-3px;transform:scale(.45);transform-origin:bottom right}
