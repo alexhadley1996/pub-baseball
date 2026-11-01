@@ -294,7 +294,7 @@ blockquote.his cite{display:block;margin-top:4px;font-size:.8rem;color:var(--mut
 body.themed.hasbg{background:linear-gradient(180deg,color-mix(in srgb,var(--dark) 35%,transparent) 0,color-mix(in srgb,var(--dark) 62%,transparent) 520px,color-mix(in srgb,var(--bg) 88%,transparent) 1100px),var(--bgimg) center top/cover no-repeat fixed,var(--bg)}
 body.themed.hasbg .hero.band{background:color-mix(in srgb,var(--band) 86%,transparent);backdrop-filter:blur(3px)}
 body.themed.hasbg .chips .chip{background:rgba(255,255,255,.95)}
-body.themed.hasbg .foot{background:color-mix(in srgb,var(--dark) 85%,transparent);color:var(--bandfg);padding:10px 0}
+body.themed.hasbg .foot{background:color-mix(in srgb,var(--dark) 85%,transparent);color:#fff;padding:10px 0}
 body.themed-lite.hasbg{background:linear-gradient(180deg,color-mix(in srgb,var(--tint) 72%,transparent) 0,var(--paper) 520px),var(--bgimg) center top/100% auto no-repeat,var(--paper)}
 body.themed-lite.hasbg .phero:not(.band){background:rgba(255,255,255,.94)}
 body.hasbg .phero.band{background:color-mix(in srgb,var(--band) 90%,transparent);backdrop-filter:blur(3px)}
@@ -521,3 +521,5 @@ h4.sub{margin:1em 0 .2em}
 .cimores{display:flex;flex-wrap:wrap;gap:6px}.cimore{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--p);border-radius:3px;padding:3px 9px 3px 4px;font-size:.84rem}
 .cimore .lg{width:22px;height:22px}
 @media (max-width:640px){.cihero{flex-direction:column;align-items:flex-start;padding:12px}.cihero .lgx{width:60px;height:60px}.cigrid{grid-template-columns:1fr}}
+
+.band,.themed .st thead th,.themed .ptabs button.on,.ptabs button.on{text-shadow:var(--bandsh,none)}
