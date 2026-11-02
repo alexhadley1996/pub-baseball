@@ -523,3 +523,10 @@ h4.sub{margin:1em 0 .2em}
 @media (max-width:640px){.cihero{flex-direction:column;align-items:flex-start;padding:12px}.cihero .lgx{width:60px;height:60px}.cigrid{grid-template-columns:1fr}}
 
 .band,.themed .st thead th,.themed .ptabs button.on,.ptabs button.on{text-shadow:var(--bandsh,none)}
+/* paper-side accents: --accent2p is the secondary, or the band colour when the secondary is white (white would vanish on white) */
+.themed tbody tr td.sc,.themed tbody tr:nth-child(even) td.sc,.themed-lite tbody tr td.sc{background:color-mix(in srgb,var(--accent2p,var(--accent2)) 18%,#fff)}
+.themed main h2:not(.lgh){box-shadow:0 3px 0 var(--accent2p,var(--accent2))}
+.themed .chip,.themed-lite .chip{border-top-color:var(--accent2p,var(--accent2))}
+svg.park .pwall{stroke:var(--accent2p,var(--accent2))}
+.paytab .pc.ext{background:color-mix(in srgb,var(--accent2p,var(--accent2,#7a5)) 28%,#fff);outline-color:var(--accent2p,var(--accent2,#7a5))}
+.tql a,.band .tql a,.themed .band .tql a,.hero .tql a,.pxl span{border-color:var(--accent2p,var(--accent2,#1d2a44))}
