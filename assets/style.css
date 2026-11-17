@@ -586,14 +586,14 @@ svg.park .pwall{stroke:var(--accent2p,var(--accent2))}
 .spray .foul{stroke:#fff;stroke-width:1.2}.spray .bb{stroke:#fff;stroke-width:.5;opacity:.9}
 .sprl{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.75rem;margin-top:4px}.sprl i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:-1px}
 .tlpair{display:block}
-/* batted-ball percentile bars (Savant-style) */
-.bbx{max-width:620px;margin:6px 0 4px}
-.bbx .bbr{display:grid;grid-template-columns:minmax(96px,130px) 1fr 74px;align-items:center;gap:10px;padding:4px 0;border-bottom:1px solid #eee;font-size:.88rem}
-.bbx .bbl{font-weight:600}.bbx .bbv{text-align:right;font-variant-numeric:tabular-nums}
-.bbx .bbt{position:relative;height:6px;background:#e8e4dc;border-radius:3px;margin:0 12px}
-.bbx .bbt i{position:absolute;left:0;top:0;bottom:0;border-radius:3px}
-.bbx .bbt b{position:absolute;top:50%;transform:translate(-50%,-50%);min-width:24px;height:24px;border-radius:12px;color:#fff;font-size:.72rem;line-height:24px;text-align:center;border:2px solid #fff;box-sizing:border-box}
-.bbx .bbt.none{background:repeating-linear-gradient(90deg,#e8e4dc 0 6px,transparent 6px 10px)}
+/* batted-ball percentile bars (Savant-style: blue = poor, red = great) */
+.bbx{max-width:640px;margin:6px 0 4px}
+.bbx .bbr{display:grid;grid-template-columns:minmax(108px,140px) 1fr 80px;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid #eee;font-size:.9rem}
+.bbx .bbl{font-weight:600}.bbx .bbv{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.bbx .bbt{position:relative;height:12px;background:#e6e6e6;border-radius:6px;margin:0 16px}
+.bbx .bbt i{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+.bbx .bbt b{position:absolute;top:50%;transform:translate(-50%,-50%);min-width:28px;height:28px;padding:0 5px;border-radius:14px;color:#fff;font-size:.75rem;font-weight:700;line-height:24px;text-align:center;border:2px solid #fff;box-sizing:border-box;font-variant-numeric:tabular-nums;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.bbx .bbt.none{background:repeating-linear-gradient(90deg,#e6e6e6 0 6px,transparent 6px 10px)}
 .bbn{font-size:.78rem;margin-top:2px}
 .bbstrip{margin:4px 0 10px}.bbstrip svg{width:100%;height:auto;display:block;font:12px -apple-system,"Segoe UI",sans-serif}
 .bbstrip .sl{text-anchor:end;fill:#3b3a36;font-weight:600}.bbstrip .st{stroke:#e2dccf;stroke-width:2}
