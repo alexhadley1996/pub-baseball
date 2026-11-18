@@ -137,7 +137,7 @@ function init(fig){
 window.tlFilter=function(fig,keep){fig._tlKeep=keep&&keep.length?keep.map(String):null;init(fig)};
 
 
-/* Spray chart/* Spray chart: figure.spray[data-sp] = {b:[[loc,res,home,la,ev,throws,month],...], p:{zone:[angle,feet,dAng,dFt]}, park?}.
+/* Spray chart: figure.spray[data-sp] = {b:[[loc,res,home,la,throws,month],...], p:{zone:[angle,feet,dAng,dFt]}, park?}.
    Results: 4 GO, 5 FO, 6 1B, 7 2B, 8 3B, 9 HR. throws: 1=R, 2=L. Filters and coloring are client-side. */
 var RC={4:['#9aa0a6','Ground out'],5:['#5f6b7a','Fly/line out'],6:['#2a9d55','Single'],7:['#2f6fdb','Double'],8:['#9b51e0','Triple'],9:['#d6332a','Home run']};
 function fenceR(pk,ang){
@@ -156,11 +156,6 @@ function wallShade(h){var t=Math.max(0,Math.min(1,((h||8)-4)/34));
   return'rgb('+L(110,36)+','+L(96,40)+','+L(80,32)+')'}
 function mixCh(a,b,t){return Math.round(a+(b-a)*t)}
 function mixRgb(a,b,t){return'rgb('+mixCh(a[0],b[0],t)+','+mixCh(a[1],b[1],t)+','+mixCh(a[2],b[2],t)+')'}
-function evCol(mph){
-  if(mph==null)return'#9aa0a6';
-  var t=Math.max(0,Math.min(1,(mph-70)/40));
-  return t<.5?mixRgb([29,100,196],[197,192,204],t/.5):mixRgb([197,192,204],[216,33,41],(t-.5)/.5);
-}
 function laCol(la){
   if(la==null)return'#9aa0a6';
   var t=Math.max(0,Math.min(1,(la+10)/60));
@@ -208,7 +203,7 @@ function spray(fig){
   (D.b||[]).forEach(function(b){
     var loc=b[0],res=b[1],p=D.p[String(loc)]||D.p[loc];if(!p)return;
     var ang=p[0]+(rnd()-.5)*p[2],ft=p[1]+(rnd()-.5)*p[3];
-    var la=b[3],ev=b[4],it={el:el('circle',{'class':'bb','data-z':String(loc)},dots),loc:loc,res:res,h:b[2],la:la,ev:ev,th:b[5]||0,mo:b[6]||0,typ:typOf(la),ang:ang,ft:ft};
+    var la=b[3],it={el:el('circle',{'class':'bb','data-z':String(loc)},dots),loc:loc,res:res,h:b[2],la:la,th:b[4]||0,mo:b[5]||0,typ:typOf(la),ang:ang,ft:ft};
     items.push(it);(byz[loc]=byz[loc]||[]).push(it);if(it.mo)months[it.mo]=1;
   });
   function seg(name,key,opts){
@@ -241,7 +236,7 @@ function spray(fig){
   var monOpts=[['0','All']];
   Object.keys(months).sort(function(a,b){return a-b}).forEach(function(m){monOpts.push([m,MON[m-1]||m])});
   bar.appendChild(sel('Month','mon',monOpts));
-  bar.appendChild(sel('Color by','col',[['res','Result'],['ev','Exit velocity heat'],['la','Launch angle']]));
+  bar.appendChild(sel('Color by','col',[['res','Result'],['la','Launch angle']]));
   if(D.park&&D.park.d)bar.appendChild(seg('Park outline','pk',[['h','Home park'],['g','Generic']]));
   var parkLab=fig.querySelector('.sprpark');
   if(parkLab&&parkLab.nextSibling)fig.insertBefore(bar,parkLab.nextSibling);else fig.insertBefore(bar,wrap);
@@ -256,7 +251,6 @@ function spray(fig){
     return n===any?null:on;
   }
   function colorOf(it,mode){
-    if(mode==='ev')return evCol(it.ev);
     if(mode==='la')return laCol(it.la);
     return(RC[it.res]||RC[4])[0];
   }
@@ -271,13 +265,13 @@ function spray(fig){
   }
   function apply(){
     drawField(val('pk')!=='g');
-    var mode=val('col'),tot={},nh=0,nr=0,n=0,evs=[],las=[];
+    var mode=val('col'),tot={},nh=0,nr=0,n=0,las=[];
     items.forEach(function(it){
       var ok=shown(it);
       it.el.style.display=ok?'':'none';
       if(!ok)return;
       n++;tot[it.res]=(tot[it.res]||0)+1;if(it.h)nh++;else nr++;
-      if(it.ev!=null)evs.push(it.ev);if(it.la!=null)las.push(it.la);
+      if(it.la!=null)las.push(it.la);
       var ft=it.ft,fr=usePk?fenceR(usePk,it.ang):null;
       if(fr&&it.h&&Math.abs(it.ang)<=45.5){
         if(it.res===9&&ft<fr)ft=fr+10;
@@ -291,10 +285,7 @@ function spray(fig){
     });
     var html='';
     if(mode==='res')[4,5,6,7,8,9].forEach(function(r){if(tot[r])html+='<span><i style="background:'+RC[r][0]+'"></i>'+RC[r][1]+' '+tot[r]+'</span>'});
-    else if(mode==='ev'){
-      html+='<span class="sprgrad"><i style="background:linear-gradient(90deg,'+evCol(70)+','+evCol(90)+','+evCol(110)+')"></i>70–110 mph</span>';
-      if(evs.length){evs.sort(function(a,b){return a-b});html+='<span>'+evs[0]+'–'+evs[evs.length-1]+' mph on field</span>'}
-    }else{
+    else{
       html+='<span class="sprgrad"><i style="background:linear-gradient(90deg,'+laCol(-10)+','+laCol(15)+','+laCol(30)+','+laCol(50)+')"></i>−10° to 50°</span>';
       if(las.length){las.sort(function(a,b){return a-b});html+='<span>'+las[0]+'° to '+las[las.length-1]+'°</span>'}
     }
@@ -310,7 +301,7 @@ function spray(fig){
   apply();
   function tipFor(it){
     var bits=[(RC[it.res]||['','Ball'])[1],it.h?'home':'road'];
-    if(it.ev!=null)bits.push(it.ev+' mph');if(it.la!=null)bits.push(it.la+'\u00b0');
+    if(it.la!=null)bits.push(it.la+'\u00b0');
     if(it.th===1)bits.push('vs RHP');else if(it.th===2)bits.push('vs LHP');
     if(it.mo)bits.push(MON[it.mo-1]||'');
     return'<b>'+(D.n[it.loc]||D.n[String(it.loc)]||'Zone')+'</b><br>'+bits.filter(Boolean).join(' · ');
@@ -322,24 +313,6 @@ function spray(fig){
     tip.innerHTML=tipFor(it);placeTip(tip,svg,e.clientX,e.clientY);return true});
 }
 function day0(d0,t){var d=new Date(d0+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+t);return MON[d.getUTCMonth()]+' '+d.getUTCDate()}
-function evla(fig){
-  var D=JSON.parse(fig.getAttribute('data-ev')),W=Math.max(300,Math.min(560,fig.clientWidth||((document.documentElement.clientWidth||600)-24))),H=Math.round(W*.68),pl=44,pr=14,pt=16,pb=32;
-  var x0=-30,x1=90,y0=20,y1=120,X=function(v){return pl+(v-x0)*(W-pl-pr)/(x1-x0)},Y=function(v){return H-pb-(Math.min(Math.max(v,y0),y1)-y0)*(H-pt-pb)/(y1-y0)};
-  var wrap=fig.querySelector('.svgw'),svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Exit velocity vs launch angle'});wrap.insertBefore(svg,wrap.firstChild);
-  for(var v=y0;v<=y1;v+=20){el('line',{'class':'grid',x1:pl,x2:W-pr,y1:Y(v),y2:Y(v)},svg);el('text',{'class':'yl',x:pl-8,y:Y(v)+3},svg).textContent=v}
-  for(v=-30;v<=90;v+=30){el('line',{'class':'grid xv',x1:X(v),x2:X(v),y1:pt,y2:H-pb},svg);el('text',{'class':'xl',x:X(v),y:H-pb+16,'text-anchor':'middle'},svg).textContent=v+'\u00b0'}
-  var bz=[[26,98],[25,99],[24,100],[8,116],[8,120],[50,120],[50,116],[33,100],[31,99],[30,98]];
-  el('polygon',{'class':'brlz',points:bz.map(function(p){return X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)}).join(' ')},svg);
-  el('text',{'class':'brlt',x:X(29),y:Y(113)},svg).textContent='barrel zone';
-  el('text',{'class':'axt',x:pl,y:pt-2},svg).textContent='exit velocity (mph)';el('text',{'class':'axt',x:W-pr,y:H-3,'text-anchor':'end'},svg).textContent='launch angle';
-  var tot={},order=[4,5,6,7,8,9];D.p.sort(function(a,b){return order.indexOf(a[2])-order.indexOf(b[2])});
-  D.p.forEach(function(p,i){tot[p[2]]=(tot[p[2]]||0)+1;el('circle',{'class':'bb','data-i':i,cx:X(p[0]).toFixed(1),cy:Y(p[1]/10).toFixed(1),r:p[2]===9?3.6:2.9,fill:RC[p[2]][0]},svg)});
-  var lg=document.createElement('div');lg.className='sprl';order.forEach(function(r){if(tot[r])lg.innerHTML+='<span><i style="background:'+RC[r][0]+'"></i>'+RC[r][1]+' '+tot[r]+'</span>'});fig.insertBefore(lg,fig.querySelector('figcaption'));
-  var tip=fig.querySelector('.tip');
-  bindTip(svg,tip,function(e){var t=e.target,i=t.getAttribute&&t.getAttribute('data-i');if(i===null||i===undefined||i===false)return false;
-    var p=D.p[+i];tip.innerHTML='<b>'+day0(D.d0,p[3])+(p[4]>=0?(D.pitch?' vs ':' vs ')+D.o[p[4]]:'')+'</b><br>'+RC[p[2]][1]+': '+(p[1]/10).toFixed(1)+' mph, '+p[0]+'\u00b0';
-    placeTip(tip,svg,e.clientX,e.clientY);return true});
-}
 function dv(v,mid,lo,hi){var t=v>=mid?Math.min(1,(v-mid)/(hi-mid||1)):-Math.min(1,(mid-v)/(mid-lo||1));
   function mix(a,b,p){return a.map(function(x,i){return Math.round(x+(b[i]-x)*p)})}
   var g=[197,192,182],hot=[216,33,41],cold=[29,100,196];
@@ -395,7 +368,7 @@ function pyr(fig){var sel=fig.querySelector('.pyrsel'),gs=[].slice.call(fig.quer
     g.addEventListener('mouseenter',function(){if(!fig.classList.contains('focus'))sel.textContent=g.getAttribute('data-i')})});
   var on=fig.querySelector('g.tm.on');if(on){sel.textContent=on.getAttribute('data-i');var w=fig.querySelector('.pyrw'),c=on.querySelector('image,circle:last-of-type');
     if(w&&c&&w.scrollWidth>w.clientWidth){w.scrollLeft=w.scrollWidth}}}
-function go(){[].forEach.call(document.querySelectorAll('figure.evla[data-ev]'),function(f){try{evla(f)}catch(e){}});[].forEach.call(document.querySelectorAll('figure.strk[data-sk]'),function(f){try{strk(f)}catch(e){}});[].forEach.call(document.querySelectorAll('figure.pyr'),function(f){try{pyr(f)}catch(e){}});[].forEach.call(document.querySelectorAll('figure.tlc[data-tl]'),function(f){try{init(f)}catch(e){}});
+function go(){[].forEach.call(document.querySelectorAll('figure.strk[data-sk]'),function(f){try{strk(f)}catch(e){}});[].forEach.call(document.querySelectorAll('figure.pyr'),function(f){try{pyr(f)}catch(e){}});[].forEach.call(document.querySelectorAll('figure.tlc[data-tl]'),function(f){try{init(f)}catch(e){}});
   [].forEach.call(document.querySelectorAll('figure.spray[data-sp]'),function(f){try{spray(f)}catch(e){}})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
 })();
