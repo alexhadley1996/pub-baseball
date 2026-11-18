@@ -270,7 +270,7 @@ td .tl{vertical-align:middle}
 .ptabs{display:flex;gap:4px;flex-wrap:wrap;margin:18px 0 4px;border-bottom:3px solid var(--accent)}
 .ptabs button{font:600 .86rem var(--font-ui);background:var(--card);border:1px solid var(--rule);border-bottom:0;border-radius:5px 5px 0 0;padding:7px 14px;cursor:pointer;color:var(--ink)}
 .ptabs button.on{background:var(--band,var(--accent));color:var(--bandfg,#fff);border-color:var(--band,var(--accent))}
-.js .tp{display:none}.js .tp.on{display:block}
+.js .tp{display:none}.js .tp.on{display:block}.js .tabsw.rkall>.tp{display:block}
 .tp>h2:first-child{margin-top:.8em}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
 .chip{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--accent);border-radius:4px;padding:6px 12px;min-width:84px}
@@ -656,8 +656,12 @@ svg.park .pwall{stroke:var(--accent2p,var(--accent2))}
 .evla{max-width:560px}
 .evla .brlz{fill:rgba(212,42,47,.1);stroke:rgba(212,42,47,.45);stroke-dasharray:4 3}.evla .brlt{fill:#b0262b;font-size:10px;font-weight:700;text-anchor:middle;font-variant-numeric:tabular-nums}
 .evla .bb{stroke:#fff;stroke-width:.7;opacity:.92;cursor:pointer}
-.strk .ref{stroke:#cfc8bb;stroke-dasharray:4 3;stroke-linecap:round}.strk .ln{fill:none;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}.strk .sc{cursor:pointer}
-.skl{display:flex;align-items:center;gap:8px;font-size:.75rem;margin-top:8px;flex-wrap:wrap}.skl i{display:inline-block;width:120px;height:10px;border-radius:5px;border:1px solid #e4ded2}.skl em{color:#6b675e}
+.strk .ref{stroke:rgba(22,24,29,.35);stroke-width:1;stroke-dasharray:4 3;stroke-linecap:round;pointer-events:none}
+.strk .ln{fill:none;stroke:#16181d;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round;pointer-events:none}
+.strk .ln.halo{stroke:#fff;stroke-width:3.6}
+.strk .skband{pointer-events:none}
+.strk .skhit{cursor:pointer}
+.skl{display:flex;align-items:center;gap:8px;font-size:.75rem;margin-top:8px;flex-wrap:wrap}.skl i{display:inline-block;width:140px;height:10px;border-radius:5px;border:1px solid #e4ded2}.skl em{color:#6b675e}
 .evla .tip,.strk .tip{position:absolute;pointer-events:none;z-index:3}
 /* defense card */
 .defc{max-width:760px}
@@ -707,4 +711,27 @@ abbr[title]{text-decoration:underline dotted;cursor:help}
   .chartbox,.race,figure.tlc,figure.spray,figure.evla,figure.strk,figure.pyr,figure.bbstrip,.radar,.bbx,.defc,.ars,.barc{padding:10px 8px 8px;border-radius:10px}
   .tlc .lab text,.race .lab text,.pyr .tm .ab{font-size:10px}
   .tip{font-size:12px;max-width:min(240px,86vw)}
+}
+
+/* ranking page filters */
+.rkf{display:flex;flex-wrap:wrap;gap:8px 14px;margin:10px 0 14px;padding:10px 12px;font-size:.78rem;align-items:center;line-height:1.4;background:#faf8f3;border:1px solid #ece7dc;border-radius:10px}
+.rkfrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;width:100%}
+.rkflab{font-weight:600;color:#5a564c;margin-right:2px}
+.rkfscope,.rkfdivs{display:flex;flex-wrap:wrap;gap:4px}
+.rkf button{border:1px solid #d4cfc3;background:#fff;border-radius:999px;padding:4px 11px;font:600 .75rem var(--font-ui);cursor:pointer;color:#3b3a36}
+.rkf button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rkf button:hover{border-color:#b9b3a6}
+.rkf .rkfclr{margin-left:2px}
+.rkfq{font:inherit;padding:4px 10px;border:1px solid #d4cfc3;border-radius:999px;background:#fff;min-width:12rem;max-width:100%}
+.rkfchips{display:flex;flex-wrap:wrap;gap:4px;width:100%}
+.rkfchip{display:inline-flex;align-items:center;gap:5px}
+.rkfchip i,.rkft i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lc,#888)}
+.rkflist{display:flex;flex-wrap:wrap;gap:4px;width:100%;max-height:220px;overflow:auto;padding:4px 0 0}
+.rkft{background:#fff}
+.rkft.on{background:#fff;color:#16181d;box-shadow:0 0 0 1px var(--ink);border-color:var(--ink)}
+.rkempty{margin:8px 0}
+.rkflist[hidden],.rkfchips[hidden],.rkfdivs button[hidden]{display:none!important}
+@media (max-width:600px){
+  .rkfq{min-width:0;flex:1}
+  .rkf{padding:8px 8px}
 }

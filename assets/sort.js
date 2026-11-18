@@ -51,9 +51,12 @@ function tabs(){
     var root=nav.parentNode,btns=[].slice.call(nav.querySelectorAll('button')),pans=[].slice.call(root.querySelectorAll(':scope > .tp'));
     function show(k,push){btns.forEach(function(b){var on=b.getAttribute('data-t')===k;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
       pans.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-t')===k)});
-      if(push&&history.replaceState)history.replaceState(null,'','#'+k)}
+      if(push&&history.replaceState&&!document.querySelector('[data-rkf]'))history.replaceState(null,'','#'+k);
+      if(push)document.dispatchEvent(new CustomEvent('ptab',{detail:{tab:k}}))}
     btns.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-t'),true)})});
-    var h=location.hash.slice(1);show(btns.some(function(b){return b.getAttribute('data-t')===h})?h:btns[0].getAttribute('data-t'),false)})}
+    var h=location.hash.slice(1).split('&')[0];
+    if(h==='all')h='';
+    show(btns.some(function(b){return b.getAttribute('data-t')===h})?h:btns[0].getAttribute('data-t'),false)})}
 function boot(){init();tabs()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 window.sortTable=sortTable;
