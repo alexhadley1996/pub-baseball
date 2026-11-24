@@ -322,7 +322,7 @@ function strk(fig){
   var pl=44,pr=14,pt=10,bh=58,pb=28,H=pt+bh+pb;
   var x0=pl,x1=W-pr,bw=x1-x0,svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Rolling performance band'}),wrap=fig.querySelector('.svgw');
   wrap.insertBefore(svg,wrap.firstChild);
-  var roll=[];D.c.forEach(function(c,i){var a=D.c.slice(Math.max(0,i-6),i+1);
+  var nw=D.w||7,roll=[];D.c.forEach(function(c,i){var a=D.c.slice(Math.max(0,i-nw+1),i+1);
     if(D.k==='ops'){var s=[0,0,0,0,0,0];a.forEach(function(x){for(var j=0;j<6;j++)s[j]+=x[3][j]});var ob=s[0]+s[2]+s[3]+s[4];roll.push((ob?(s[1]+s[2]+s[3])/ob:0)+(s[0]?s[5]/s[0]:0))}
     else roll.push(a.reduce(function(t,x){return t+x[1]},0)/a.length)});
   var lo=D.k==='ops'?0:D.lo,hi=D.k==='ops'?1.6:D.hi;
@@ -350,7 +350,7 @@ function strk(fig){
   var hiL=D.k==='ops'?'2.000+':(D.k==='wpa'?'+'+D.hi:D.hi+'+');
   var hot=D.k==='ops'?'hotter than average':'better';
   var cold=D.k==='ops'?'colder than average':'worse';
-  lg.innerHTML='<span>'+loL+' '+cold+'</span><i style="background:linear-gradient(90deg,'+dv(D.lo,D.mid,D.lo,D.hi)+','+dv(D.mid,D.mid,D.lo,D.hi)+','+dv(D.hi,D.mid,D.lo,D.hi)+')"></i><span>'+hot+' '+hiL+'</span> <em>band and line = last 7 vs '+(D.k==='ops'?'league average':'midpoint')+'</em>';
+  lg.innerHTML='<span>'+loL+' '+cold+'</span><i style="background:linear-gradient(90deg,'+dv(D.lo,D.mid,D.lo,D.hi)+','+dv(D.mid,D.mid,D.lo,D.hi)+','+dv(D.hi,D.mid,D.lo,D.hi)+')"></i><span>'+hot+' '+hiL+'</span> <em>band and line = last '+(D.w||7)+' vs '+(D.k==='ops'?'league average':'midpoint')+'</em>';
   var cap=fig.querySelector('figcaption');if(cap)fig.insertBefore(lg,cap);else fig.appendChild(lg);
   var tip=fig.querySelector('.tip');
   bindTip(svg,tip,function(e){
@@ -359,7 +359,7 @@ function strk(fig){
     if(x<x0-8||x>x1+8)return false;
     var c=D.c[best],v=D.k==='ops'?c[1].toFixed(3).replace(/^0\./,'.'):D.k==='wpa'?(c[1]>0?'+':'')+c[1].toFixed(3):String(c[1]);
     var rv=D.k==='ops'?roll[best].toFixed(3).replace(/^0\./,'.'):roll[best].toFixed(D.k==='wpa'?3:1);
-    tip.innerHTML='<b>'+day0(D.d0,c[0])+'</b><br>'+c[2]+'<br>'+D.lab+' '+v+'; last 7: '+rv;
+    tip.innerHTML='<b>'+day0(D.d0,c[0])+'</b><br>'+c[2]+'<br>'+D.lab+' '+v+'; last '+(D.w||7)+': '+rv;
     placeTip(tip,svg,e.clientX,e.clientY);return true});
 }
 function pyr(fig){var sel=fig.querySelector('.pyrsel'),gs=[].slice.call(fig.querySelectorAll('g.tm'));
