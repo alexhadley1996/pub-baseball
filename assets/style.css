@@ -731,3 +731,24 @@ abbr[title]{text-decoration:underline dotted;cursor:help}
   .rkfq{min-width:0;flex:1}
   .rkf{padding:8px 8px}
 }
+/* play-by-play (gamelogs.py) */
+.pbp{margin-top:2em}
+.pbp h3{margin:.6em 0 .3em}
+.pbps{margin:0 0 1em;padding-left:1.1em}.pbps li{margin:.2em 0}
+.pbps .inn{display:inline-block;min-width:3.4em;font-weight:700;font-family:var(--font-num);font-size:.85rem;color:var(--muted)}
+details.pbph{margin:0;border-top:1px solid var(--rule)}
+details.pbph:last-of-type{border-bottom:1px solid var(--rule)}
+details.pbph>summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:8px 2px;font-weight:400}
+details.pbph>summary b{min-width:6.5em}
+details.pbph.scored>summary b{color:var(--red)}
+.pbph .bat{color:var(--muted);font-size:.9rem}
+.pbph .hs{font-family:var(--font-num);font-size:.85rem;color:var(--muted)}
+.pbph .sc{margin-left:auto;font-family:var(--font-num);font-size:.9rem;font-weight:600}
+.pbpl{list-style:none;margin:0 0 10px;padding:0 0 0 6px}
+.pbpl li{padding:5px 0 5px 10px;border-left:3px solid transparent}
+.pbpl li.run{border-left-color:var(--red);background:color-mix(in srgb,var(--red) 7%,transparent)}
+.pbpl li.pc{color:var(--muted);font-style:italic;font-size:.9rem}
+.pbpl .who{font-weight:600}
+.pbpl .seq{margin-left:10px;font-family:var(--font-num);font-size:.8rem;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
+.pbpl .ev{font-size:.88rem;color:var(--muted);margin-top:2px}
+.pbpl li.run .res{font-weight:600}
