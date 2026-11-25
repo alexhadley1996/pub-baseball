@@ -752,3 +752,13 @@ details.pbph.scored>summary b{color:var(--red)}
 .pbpl .seq{margin-left:10px;font-family:var(--font-num);font-size:.8rem;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
 .pbpl .ev{font-size:.88rem;color:var(--muted);margin-top:2px}
 .pbpl li.run .res{font-weight:600}
+/* game recaps and Game of the Day (recaps.py) */
+.recap{margin:1.2em 0}
+.recap p,.gotd p{margin:.45em 0}
+.rchr{font-size:.88rem;color:var(--muted)}
+.rcfeat a{font-weight:700}
+.gotd{border:1px solid var(--rule);border-top:4px solid var(--red);background:var(--card);padding:14px 16px;margin:16px 0}
+.gotd h2{margin:.2em 0 .3em;font-size:1.35rem}
+.gotdk{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.gotdbox{font-size:.9rem}
+.bxrow .bxl{display:inline}
